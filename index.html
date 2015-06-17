@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html data-ng-app="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>IPV - Ministério de louvor - Musicas</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    </head>
+
+    <body data-ng-controller="carHireController">
+
+	<section id="car-hire-results">
+
+        <h1>Ministério de louvor - IPVSP</h1>
+        <h2>Catálogo de músicas</h2>
+        <br/>
+
+        <article data-ng-repeat="result in results | filter:search" class="result">
+			<header><h3>{{result.musica.name}} ({{result.autor.name}})</h3></header>
+			<ul class="result-features">
+				<li><i class="fa fa-music"></i> Tom: {{result.tom.name}}</li>
+				<li><i class="fa fa-download"></i> Download: <a href="{{result.file}}">{{result.file.substring(8)}}</a></li>
+			</ul>
+		</article>
+
+		<p data-ng-show="(results | filter:search).length==0">Não existem resultados para esta pesquisa</p>
+
+	</section>
+
+	<section id="filters">
+		<h2>Filtro</h2>
+  	<fieldset>
+
+		Musica: <input type="text" ng-model="search.musica" style="width: 100%">
+        <br><br>
+        Autor: <input type="text" ng-model="search.autor" style="width: 100%">
+
+        <br><br>
+		Voz Masculina <input type="checkbox"  data-ng-model="search.voz" ng-true-value="VM" ng-false-value="" />
+		Voz Freminina <input type="checkbox"  data-ng-model="search.voz" ng-true-value="VF" ng-false-value="" />
+
+        <br><br>
+		Tom:<br>
+		C <input type="checkbox"  data-ng-model="search.tom" ng-true-value="C" ng-false-value="" />
+		D <input type="checkbox"  data-ng-model="search.tom" ng-true-value="D" ng-false-value="" />
+        E <input type="checkbox"  data-ng-model="search.tom" ng-true-value="E" ng-false-value="" />
+        F <input type="checkbox"  data-ng-model="search.tom" ng-true-value="F" ng-false-value="" />
+        G <input type="checkbox"  data-ng-model="search.tom" ng-true-value="G" ng-false-value="" />
+        A <input type="checkbox"  data-ng-model="search.tom" ng-true-value="A" ng-false-value="" />
+        B <input type="checkbox"  data-ng-model="search.tom" ng-true-value="B" ng-false-value="" />
+		<br>
+		C# <input type="checkbox"  data-ng-model="search.tom" ng-true-value="C#" ng-false-value="" />
+		D# <input type="checkbox"  data-ng-model="search.tom" ng-true-value="D#" ng-false-value="" />
+        F# <input type="checkbox"  data-ng-model="search.tom" ng-true-value="F#" ng-false-value="" />
+        G# <input type="checkbox"  data-ng-model="search.tom" ng-true-value="G#" ng-false-value="" />
+        A# <input type="checkbox"  data-ng-model="search.tom" ng-true-value="A#" ng-false-value="" />
+		<br>
+		Db <input type="checkbox"  data-ng-model="search.tom" ng-true-value="Db" ng-false-value="" />
+        Eb <input type="checkbox"  data-ng-model="search.tom" ng-true-value="Eb" ng-false-value="" />
+        Gb <input type="checkbox"  data-ng-model="search.tom" ng-true-value="Gb" ng-false-value="" />
+        Ab <input type="checkbox"  data-ng-model="search.tom" ng-true-value="Ab" ng-false-value="" />
+        Bb <input type="checkbox"  data-ng-model="search.tom" ng-true-value="Bb" ng-false-value="" />
+
+		</fieldset>
+
+	</section>
+
+
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+    <script src="app.js"></script>
+    </body>
+</html>
