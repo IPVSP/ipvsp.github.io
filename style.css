@@ -1,5 +1,7 @@
 /* Styles go here */
 
+body { font-family: Tahoma, Verdana, Segoe; color: #3C3C3C; }
+
 #car-hire-results { float: left; width: 70%; }
 article.result { float: left; width: 94%; border: 1px solid #ddd; margin-bottom: 1em; border-radius: 5px; padding-bottom: 1em; }
 article.result header { background: #ddd; padding: 0.1em 2%; margin-bottom: 0.5em; }

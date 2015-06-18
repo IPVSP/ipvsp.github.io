@@ -6,6 +6,10 @@
         <title>IPV - Ministério de louvor - Musicas</title>
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <script>
+            function isVM(voz) { console.log(voz); return voz === 'FM'; }
+            function isVF(voz) { return voz === 'FF'; }
+        </script>
     </head>
 
     <body data-ng-controller="carHireController">
@@ -13,7 +17,7 @@
 	<section id="car-hire-results">
 
         <h1>Ministério de louvor - IPVSP</h1>
-        <h2>Catálogo de músicas</h2>
+        <h2>{{results.length}} músicas cadastradas</h2>
         <br/>
 
         <article data-ng-repeat="result in results | filter:search" class="result">
@@ -21,6 +25,7 @@
 			<ul class="result-features">
 				<li><i class="fa fa-music"></i> Tom: {{result.tom.name}}</li>
 				<li><i class="fa fa-download"></i> Download: <a href="{{result.file}}">{{result.file.substring(8)}}</a></li>
+                <li><i class="fa fa-volume-up"></i> Voz: {{result.voz.name}}</li>
 			</ul>
 		</article>
 
